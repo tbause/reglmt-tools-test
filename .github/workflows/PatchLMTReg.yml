@@ -35,24 +35,33 @@ jobs:
       - name: Status message
         run: echo Deleting LMT Register!
 
-      # Runs a set of commands using the runners shell
-      - name: Delete the LMT register directory
+      # Test message to show contents of LMT directory
+      - name: Show content of LMT register directory
         run: ls
 
-      # Runs a set of commands using the runners shell
+      # Remove the existing LMT directory
       - name: Delete the LMT register directory
         run: git rm -r dist/lmt
 
-      - name: Add new xml file
+      # Commit the changes before adding the new LMT directory
+      - name: Commit changes to repo
+        run: git commit . -m "Deleted LMT Register"
+
+      # Outputs a status message
+      - name: Status message
+        run: echo Add the new LMT register directory
+
+      # Add the new LMT register directory
+      - name: Add new xml register
         run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
 
       # Outputs a status message
       - name: Status message
-        run: echo Commit LMT Register deletion!
+        run: echo Commit LMT Register addition and push repo!
 
       # Runs a set of commands using the runners shell
       - name: Commit changes to repo
-        run: git commit . -m "Deleted LMT Register"
+        run: git commit . -m "Added new LMT Register"
   
       # Runs a set of commands using the runners shell
       - name: Push changes to repo
