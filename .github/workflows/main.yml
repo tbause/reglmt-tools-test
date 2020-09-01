@@ -31,6 +31,9 @@ jobs:
       - name: Delete the LMT register directory
         run: git rm -r dist/lmt
 
+      - name: Add new xml file
+        run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
+
       # Outputs a status message
       - name: Status message
         run: echo Setting identity .git/config
