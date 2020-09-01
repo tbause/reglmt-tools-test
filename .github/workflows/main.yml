@@ -21,21 +21,6 @@ jobs:
 
       # Outputs a status message
       - name: Status message
-        run: echo Deleting LMT Register!
-
-      # Runs a set of commands using the runners shell
-      - name: Delete the LMT register directory
-        run: ls
-
-      # Runs a set of commands using the runners shell
-      - name: Delete the LMT register directory
-        run: git rm -r dist/lmt
-
-      - name: Add new xml file
-        run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
-
-      # Outputs a status message
-      - name: Status message
         run: echo Setting identity .git/config
         
       # Set the user email
@@ -45,6 +30,21 @@ jobs:
       # Set the user name
       - name: Set user name
         run: git config --global user.name "Thomas Bause Mason"
+
+      # Outputs a status message
+      - name: Status message
+        run: echo Deleting LMT Register!
+
+      # Runs a set of commands using the runners shell
+      - name: Delete the LMT register directory
+        run: ls
+
+      # Runs a set of commands using the runners shell
+      # - name: Delete the LMT register directory
+      #  run: git rm -r dist/lmt
+
+      - name: Add new xml file
+        run: git subtree add --prefix=dist/lmt https://github.com/tbause/reglmt-test.git HEAD
 
       # Outputs a status message
       - name: Status message
