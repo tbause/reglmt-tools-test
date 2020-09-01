@@ -49,4 +49,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Commit changes to repo
-        run: git commit -m "Deleted LMT Register"
+        run: git commit . -m "Deleted LMT Register"
+  
+      # Runs a set of commands using the runners shell
+      - name: Push changes to repo
+        run: git push
